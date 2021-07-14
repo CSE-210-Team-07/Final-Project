@@ -1,5 +1,6 @@
 from game import constants
 from game.action import Action
+from game.ball import Ball
 
 class ControlActorsAction(Action):
     """A code template for controlling actors. The responsibility of this
@@ -27,12 +28,15 @@ class ControlActorsAction(Action):
             cast (dict): The game actors {key: tag, value: list}.
         """
         direction = self._input_service.get_direction().scale(constants.PADDLE_MOVE_SCALE)
+        shootTrueFalse = self._input_service.shoot()
+        if shootTrueFalse:
+            ball = Ball()
+            cast["balls"].append(ball)
         paddle = cast["paddle"][0] # there's only one in the cast
         paddle_x = paddle.center_x
         # print(paddle.center_x) 
-        print(direction.get_x()) 
+
         if paddle_x <= 0 and direction.get_x() == -10:
-            print("paddle reached left edge")
             paddle.center_x = constants.MAX_X
         elif paddle_x >= constants.MAX_X and direction.get_x() == 10:
             paddle.center_x = 0

@@ -18,6 +18,6 @@ BRICK_SPACE = 10
 
 BALLS_CAN_DIE = False
 
-BALL_IMAGE = "images/ball-0.png"
-PADDLE_IMAGE = "images/paddle-0.png"
-BRICK_IMAGE = "images/brick-0.png"
+BALL_IMAGE = "batter_arcade_port/batter/images/ball-0.png"
+PADDLE_IMAGE = "batter_arcade_port/batter/images/paddle-0.png"
+BRICK_IMAGE = "batter_arcade_port/batter/images/brick-0.png"

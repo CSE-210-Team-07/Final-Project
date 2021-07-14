@@ -38,8 +38,6 @@ class ArcadeInputService:
             x = -1
         elif arcade.key.RIGHT in self._keys:
             x = 1
-        elif arcade.key.SPACE in self._keys:
-            x = 1
         # if arcade.key.UP in self._keys:
         #     y = 1
         # elif arcade.key.DOWN in self._keys:
@@ -47,5 +45,9 @@ class ArcadeInputService:
 
         velocity = Point(x,y)
         return velocity 
+        
+    def shoot(self):
+        if arcade.key.SPACE in self._keys:
+            return True
             
 

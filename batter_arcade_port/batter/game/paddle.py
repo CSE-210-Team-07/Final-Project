@@ -9,3 +9,6 @@ class Paddle(arcade.Sprite):
 
         self.center_x = int(constants.MAX_X / 2)
         self.center_y = int(constants.PADDLE_Y)
+
+    def return_x(self):
+        return self.center_x
