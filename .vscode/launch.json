@@ -1,0 +1,15 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Batter - Arcade",
+            "type": "python",
+            "request": "launch",
+            "program": "/Users/sburton/git/byui-cse/cse210-faculty-burton/burton_code/09_solo_batter_arcade_port/batter/__main__.py",
+            "console": "integratedTerminal"
+        }
+    ]
+}
