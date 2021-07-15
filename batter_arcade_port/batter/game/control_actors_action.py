@@ -30,7 +30,9 @@ class ControlActorsAction(Action):
         direction = self._input_service.get_direction().scale(constants.PADDLE_MOVE_SCALE)
         shootTrueFalse = self._input_service.shoot()
         if shootTrueFalse:
-            ball = Ball()
+            paddle = cast["paddle"][0] # there's only one in the cast
+            paddle_x = paddle.center_x 
+            ball = Ball(paddle_x)
             cast["balls"].append(ball)
         paddle = cast["paddle"][0] # there's only one in the cast
         paddle_x = paddle.center_x

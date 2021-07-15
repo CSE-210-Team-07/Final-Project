@@ -20,7 +20,7 @@ class HandleCollisionsAction(Action):
 
         for ball in cast["balls"]:
             self._handle_wall_bounce(ball)
-            self._handle_paddle_bounce(ball, paddle)
+            # self._handle_paddle_bounce(ball, paddle)
 
             bricks = cast["bricks"]
             self._handle_brick_collision(ball, bricks)
@@ -45,15 +45,14 @@ class HandleCollisionsAction(Action):
         if not constants.BALLS_CAN_DIE and ball_y <= 0:
             ball.bounce_horizontal()
     
-    def _handle_paddle_bounce(self, ball, paddle):
-        # This makes use of the `Sprite` functionality
-        if paddle.collides_with_sprite(ball):
-            # Ball and paddle collide!
-            ball.bounce_horizontal()
+    # def _handle_paddle_bounce(self, ball, paddle):
+    #     # This makes use of the `Sprite` functionality
+    #     if paddle.collides_with_sprite(ball):
+    #         # Ball and paddle collide!
+    #         ball.bounce_horizontal()
 
     def _handle_brick_collision(self, ball, bricks):
         brick_to_remove = None
-
         for brick in bricks:
             # This makes use of the `Sprite` functionality
             if ball.collides_with_sprite(brick):
@@ -70,7 +69,7 @@ class HandleCollisionsAction(Action):
         
         if brick_to_remove != None:
             bricks.remove(brick_to_remove)
-
+     
     
 
     def _is_off_screen(self, ball):

@@ -17,7 +17,8 @@ BRICK_HEIGHT = 15
 BRICK_SPACE = 10
 
 BALLS_CAN_DIE = False
+PATH = os.path.dirname(os.path.abspath(__file__))
+BALL_IMAGE = os.path.join(PATH,'..','images', 'ball-0.png')
+PADDLE_IMAGE = os.path.join(PATH,'..','images', 'paddle-0.png')
+BRICK_IMAGE = os.path.join(PATH,'..','images', 'brick-0.png')
 
-BALL_IMAGE = "batter_arcade_port/batter/images/ball-0.png"
-PADDLE_IMAGE = "batter_arcade_port/batter/images/paddle-0.png"
-BRICK_IMAGE = "batter_arcade_port/batter/images/brick-0.png"
