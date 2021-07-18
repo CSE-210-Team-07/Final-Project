@@ -1,3 +1,4 @@
+from batter_arcade_port.batter.game.ball import Ball
 import random
 from game import constants
 from game.action import Action
@@ -17,12 +18,11 @@ class HandleCollisionsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
-        
 
         self.cast = cast
         paddle = cast["paddle"][0]
         balls_to_remove = []
-
+		
         for ball in cast["balls"]:
             self._handle_wall_bounce(ball)
             # self._handle_paddle_bounce(ball, paddle)
