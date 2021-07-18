@@ -1,5 +1,6 @@
+from game.ball import Ball
 import random
-from game import constants
+from game.constants import constants
 from game.action import Action
 import arcade
 
@@ -17,7 +18,6 @@ class HandleCollisionsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
-        
 
         self.cast = cast
         paddle = cast["paddle"][0]
@@ -57,6 +57,7 @@ class HandleCollisionsAction(Action):
 
     # def _handle_paddle_bounce(self, ball, paddle):
     #     # This makes use of the `Sprite` functionality
+
     #     if paddle.collides_with_sprite(ball):
     #         # Ball and paddle collide!
     #         ball.bounce_horizontal()
