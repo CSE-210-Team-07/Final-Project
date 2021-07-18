@@ -9,6 +9,7 @@
 			"type": "python",
 			"request": "launch",
 			"program": "batter_arcade_port/batter/__main__.py",
+			"program": "__main__.py",
 			"console": "externalTerminal"
 		}
 	]
