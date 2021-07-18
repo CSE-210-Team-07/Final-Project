@@ -23,6 +23,11 @@ class HandleCollisionsAction(Action):
         paddle = cast["paddle"][0]
         balls_to_remove = []
 
+
+        bricks = cast["bricks"]
+        self._handle_brick_wall_collision(bricks)
+        
+
         for ball in cast["balls"]:
             self._handle_wall_bounce(ball)
             # self._handle_paddle_bounce(ball, paddle)
@@ -63,6 +68,16 @@ class HandleCollisionsAction(Action):
             if ball.collides_with_sprite(brick):
                 ball.bounce_horizontal()
                 brick_to_remove = brick
+
+        if brick_to_remove != None:
+            self.hit_sound = arcade.load_sound(":resources:sounds/hit5.wav")
+            bricks.remove(brick_to_remove)
+            self.cast["balls"].remove(ball)
+            arcade.play_sound(self.hit_sound)
+
+    def _handle_brick_wall_collision(self, bricks):
+        for brick in bricks:
+            # This makes use of the `Sprite` functionality
             if (brick.center_x > 790):
                 for brick in bricks:
                     brick.change_x = -1
@@ -71,12 +86,6 @@ class HandleCollisionsAction(Action):
                 for brick in bricks:
                     brick.change_x = 1
                     brick.center_y -= 1
-
-        if brick_to_remove != None:
-            self.hit_sound = arcade.load_sound(":resources:sounds/hit5.wav")
-            bricks.remove(brick_to_remove)
-            self.cast["balls"].remove(ball)
-            arcade.play_sound(self.hit_sound)
 
     def _is_off_screen(self, ball):
         return ball.center_y < 0
