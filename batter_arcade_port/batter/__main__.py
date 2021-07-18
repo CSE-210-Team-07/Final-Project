@@ -25,9 +25,7 @@ def main():
 
     cast["balls"] = []
 
-    for i in range(constants.NUM_BALLS):
-        ball = Ball(constants.MAX_X/2)
-        cast["balls"].append(ball)
+    
 
     cast["bricks"] = []
     for x in range(constants.BRICK_WIDTH * 2,
