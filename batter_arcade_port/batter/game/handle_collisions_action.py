@@ -2,9 +2,10 @@ import random
 from game import constants
 from game.action import Action
 
+
 class HandleCollisionsAction(Action):
     """A code template for handling collisions. The responsibility of this class of objects is to update the game state when actors collide.
-    
+
     Stereotype:
         Controller
     """
@@ -15,6 +16,7 @@ class HandleCollisionsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
+        self.cast = cast
         paddle = cast["paddle"][0]
         balls_to_remove = []
 
@@ -41,10 +43,10 @@ class HandleCollisionsAction(Action):
 
         if ball_y >= constants.MAX_Y:
             ball.bounce_horizontal()
-        
+
         if not constants.BALLS_CAN_DIE and ball_y <= 0:
             ball.bounce_horizontal()
-    
+
     # def _handle_paddle_bounce(self, ball, paddle):
     #     # This makes use of the `Sprite` functionality
     #     if paddle.collides_with_sprite(ball):
@@ -66,13 +68,10 @@ class HandleCollisionsAction(Action):
                 for brick in bricks:
                     brick.change_x = 1
                     brick.center_y -= 1
-        
+
         if brick_to_remove != None:
             bricks.remove(brick_to_remove)
-     
-    
+            self.cast["balls"].remove(ball)
 
     def _is_off_screen(self, ball):
         return ball.center_y < 0
-
-    
