@@ -1,6 +1,7 @@
 import random
 from game import constants
 from game.action import Action
+import arcade
 
 
 class HandleCollisionsAction(Action):
@@ -16,6 +17,8 @@ class HandleCollisionsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
+        
+
         self.cast = cast
         paddle = cast["paddle"][0]
         balls_to_remove = []
@@ -70,8 +73,10 @@ class HandleCollisionsAction(Action):
                     brick.center_y -= 1
 
         if brick_to_remove != None:
+            self.hit_sound = arcade.load_sound(":resources:sounds/hit5.wav")
             bricks.remove(brick_to_remove)
             self.cast["balls"].remove(ball)
+            arcade.play_sound(self.hit_sound)
 
     def _is_off_screen(self, ball):
         return ball.center_y < 0

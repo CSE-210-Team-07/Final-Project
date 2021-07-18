@@ -1,6 +1,7 @@
 from game import constants
 from game.action import Action
 from game.ball import Ball
+import arcade
 
 class ControlActorsAction(Action):
     """A code template for controlling actors. The responsibility of this
@@ -30,10 +31,12 @@ class ControlActorsAction(Action):
         direction = self._input_service.get_direction().scale(constants.PADDLE_MOVE_SCALE)
         shootTrueFalse = self._input_service.shoot()
         if shootTrueFalse:
+            self.gun_sound = arcade.load_sound(":resources:sounds/hurt5.wav")
             paddle = cast["paddle"][0] # there's only one in the cast
             paddle_x = paddle.center_x 
             ball = Ball(paddle_x)
             cast["balls"].append(ball)
+            arcade.play_sound(self.gun_sound)
         paddle = cast["paddle"][0] # there's only one in the cast
         paddle_x = paddle.center_x
         # print(paddle.center_x) 
