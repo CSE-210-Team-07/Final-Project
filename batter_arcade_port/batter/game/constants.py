@@ -16,7 +16,7 @@ BRICK_WIDTH = 25
 BRICK_HEIGHT = 15
 BRICK_SPACE = 10
 
-BALLS_CAN_DIE = False
+BALLS_CAN_DIE = True
 PATH = os.path.dirname(os.path.abspath(__file__))
 BALL_IMAGE = os.path.join(PATH,'..','images', 'ball-0.png')
 PADDLE_IMAGE = os.path.join(PATH,'..','images', 'paddle-0.png')
