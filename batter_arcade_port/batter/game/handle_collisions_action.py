@@ -89,4 +89,4 @@ class HandleCollisionsAction(Action):
                     brick.center_y -= 1
 
     def _is_off_screen(self, ball):
-        return ball.center_y < 0
+        return ball.center_y > 599
