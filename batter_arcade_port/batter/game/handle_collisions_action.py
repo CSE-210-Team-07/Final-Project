@@ -1,6 +1,6 @@
 from game.ball import Ball
 import random
-from game.constants import constants
+from game import constants
 from game.action import Action
 import arcade
 
